@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel ADMINISTRADOR SUPERIOR - PetHappy</title>
+    
+    <link rel="stylesheet" href="panel_superior.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+
+<body>
+    <div class="user-profile-header">
+        <p class="welcome-message">Bienvenido/a, <span id="user-display" style="color: #ffd700;">Administrador Superior</span></p>
+        <div class="profile-container" style="border-color: #ffd700;">
+            <div id="profile-picture-circle" style="background-color: #ffd700; color: #1a1a2e;">
+                👑
+            </div>
+            <span class="dropdown-icon"></span>
+            <div class="dropdown">
+                <button onclick="toggleMenu()" class="dropbtn">▼</button>
+                
+                <div id="admin-dropdown" class="dropdown-content">
+                    <a id="volver-admin-btn" href="Administrador.html">Panel Veterinario</a>
+                    <button id="cerrar-admin-btn" onclick="cerrarModoAdministrador1()">Cerrar Admin Superior</button>
+                    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imagen">
+        <div class="banner-admin">
+            <h1>GESTIÓN DE SISTEMA</h1>
+            <p>Control total de usuarios, productos y configuraciones</p>
+        </div>
+    </div>
+    
+    <div class="contenido-admin">
+        <hr>
+        <h2>Herramientas de Nivel Máximo</h2>
+        <hr>
+        
+        <div class="modulos-grid">
+            <div class="modulo-card" onclick="irA('gestion_usuarios.php')">
+                <h3>👥 Gestión de Usuarios</h3>
+                <p>Agregar, modificar o eliminar usuarios del sistema</p>
+            </div>
+            
+            <div class="modulo-card" onclick="irA('gestion_productos.php')">
+                <h3>💊 Gestión de Productos</h3>
+                <p>Inventario maestro de farmacia y productos</p>
+            </div>
+            
+            <div class="modulo-card" onclick="irA('gestion_codigos.php')">
+                <h3>🔑 Códigos de Acceso</h3>
+                <p>Generar y modificar códigos de veterinario y admin</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="botones">
+        <button onclick="irA('PetHappy.php')">Página Principal</button>
+        <button onclick="irA('Administrador.html')">Panel Veterinario</button>
+    </div>
+
+    <script src="TOTALSC.js"></script>
+</body>
+</html>

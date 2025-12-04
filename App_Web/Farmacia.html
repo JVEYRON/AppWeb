@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia Veterinaria - PetHappy</title>
+    <link rel="stylesheet" href="farmacia.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+<body>
+  <div class="user-profile-header">
+    <p class="welcome-message">Bienvenido/a, <span id="user-display">Invitado</span></p>
+    <div class="profile-container">
+        <div id="profile-picture-circle">
+            👤
+        </div>
+        <span class="dropdown-icon"></span>
+        <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">▼</button>
+    
+    <div id="admin-dropdown" class="dropdown-content">
+    
+    <a href="#" 
+       onclick="activarModoAdministrador()" 
+       id="acceso-veterinario-btn">Acceso: Veterinario</a>
+    
+    <a href="#" 
+       onclick="activarModoAdministradorSuperior()" 
+       id="acceso-superior-btn" 
+       style="display: none;">Acceso: Administrador</a> 
+
+    <a id="volver-admin-btn" 
+       href="#" 
+       onclick="volverAdminPanel()" 
+       style="display: none;">Volver al Panel</a>
+       
+    <button id="cerrar-admin-btn" 
+            onclick="cerrarModoAdministrador()" 
+            style="display: none;">Cerrar Nivel</button>
+
+    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+</div>
+</div>
+    </div>
+    
+</div>
+    
+    <div id="imagen">
+        <img src="Img/ph_banner.png" alt="Banner de Farmacia" width="100%" height="400">
+    </div>
+
+    <section class="titulo-seccion">
+        <h1>FARMACIA Y <span>PRODUCTOS</span></h1>
+        <h2>Tu farmacia de confianza para el cuidado de tu mascota.</h2>
+        <hr>
+    </section>
+
+    <section class="productos-galeria">
+        <div class="productos-grid">
+            
+            <div class="producto-card">
+                <img src="Img/medicina_ejemplo.png" alt="Medicamento para Parásitos">
+                <h3>Antiparasitario Plus</h3>
+                <p class="descripcion">Tratamiento de amplio espectro contra pulgas y garrapatas.</p>
+                <p class="precio">$450.00</p>
+                <button class="btn-info">Ver Detalles</button>
+            </div>
+            
+            <div class="producto-card">
+                <img src="Img/alimento_ejemplo.png" alt="Alimento Renal">
+                <h3>Alimento Renal Canino</h3>
+                <p class="descripcion">Dieta especializada para el soporte de la función renal.</p>
+                <p class="precio">$890.00</p>
+                <button class="btn-info">Ver Detalles</button>
+            </div>
+            
+            </div>
+    </section>
+
+    <div class="botones">
+        <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Cortes.html')">Estetica</button>
+        <button onclick="irA('Horarios.html')">Horarios</button>
+        <button onclick="irA('Precios.html')">Precios</button>
+        <button onclick="irA('Citas.html')">Agendar Citas</button>
+    </div>
+    <script src="TOTALSC.js"></script>
+</body>
+</html>

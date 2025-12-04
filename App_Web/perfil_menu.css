@@ -1,0 +1,119 @@
+/* perfil_menu.css - Estilos centralizados para el encabezado de perfil */
+
+/* ------------------ CONTENEDOR DEL PERFIL Y ALINEACIÓN ------------------ */
+.user-profile-header {
+    position: absolute;
+    top: 25px; 
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.welcome-message {
+    font-size: 1em;
+    color: #333; 
+    margin: 0;
+}
+
+#user-display {
+    font-weight: bold;
+    color: #007BFF; /* Color base de usuario */
+}
+
+/* ------------------ CAJA DE PERFIL Y CÍRCULO DEL ÍCONO ------------------ */
+.profile-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffc107; 
+    border-radius: 30px;
+    padding: 3px 10px 3px 3px;
+    background-color: #343a40; /* Fondo oscuro */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#profile-picture-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #E0E7FF; 
+    color: #333; /* Ícono oscuro sobre fondo claro */
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 35px;
+}
+
+.dropdown-icon {
+    font-size: 0.8em;
+    color: #fff; /* Ícono blanco sobre fondo oscuro del profile-container */
+    margin-left: 5px;
+}
+
+/* ------------------ MENÚ DESPLEGABLE (DROPDOWN) ------------------ */
+
+/* 🔑 CORRECCIÓN DE POSICIONAMIENTO: Ajustamos el margen para que NO tape el botón */
+.dropdown {
+    position: relative;
+    display: inline-block; 
+    margin-left: -5px; /* Pequeño ajuste visual */
+}
+
+/* La caja del menú */
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 220px; /* Ancho suficiente para botones largos */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001; 
+    right: 0; 
+    left: auto; 
+    /* 🔑 CORRECCIÓN DE DESBORDAMIENTO: Mueve el menú hacia ABAJO */
+    margin-top: 5px; 
+    border-radius: 5px; 
+    overflow: hidden;
+}
+
+/* Estilo general para los botones internos */
+.dropdown-content a, .dropdown-content button {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover, .dropdown-content button:hover {
+    background-color: #e9e9e9; /* Resaltado sutil al pasar el mouse */
+}
+
+.show {
+    display: block;
+}
+
+/* ------------------ ESTILOS DE NIVEL DE ALERTA/ADMIN (GLOBALES) ------------------ */
+
+/* Estilo para los botones de cierre y niveles superiores (Rojo de alerta) */
+#cerrar-admin-btn, #acceso-superior-btn {
+    background-color: #dc3545 !important; 
+    color: white !important;
+}
+
+#cerrar-admin-btn:hover, #acceso-superior-btn:hover {
+    background-color: #c82333 !important;
+}
+
+/* Estilo para el botón de cierre de sesión normal */
+#cerrar-sesion-btn {
+     background-color: #6c757d;
+     color: white;
+}
+#cerrar-sesion-btn:hover {
+     background-color: #5a6268;
+}

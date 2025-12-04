@@ -1,0 +1,87 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios y Servicios</title>
+    <link rel="stylesheet" href="precios.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+
+<body>
+     <div class="user-profile-header">
+    <p class="welcome-message">Bienvenido/a, <span id="user-display">Invitado</span></p>
+    <div class="profile-container">
+        <div id="profile-picture-circle">
+            👤
+        </div>
+        <span class="dropdown-icon"></span>
+        <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">▼</button>
+    
+    <div id="admin-dropdown" class="dropdown-content">
+    
+    <a href="#" 
+       onclick="activarModoAdministrador()" 
+       id="acceso-veterinario-btn">Acceso: Veterinario</a>
+    
+    <a href="#" 
+       onclick="activarModoAdministradorSuperior()" 
+       id="acceso-superior-btn" 
+       style="display: none;">Acceso: Administrador</a> 
+
+    <a id="volver-admin-btn" 
+       href="#" 
+       onclick="volverAdminPanel()" 
+       style="display: none;">Volver al Panel</a>
+       
+    <button id="cerrar-admin-btn" 
+            onclick="cerrarModoAdministrador()" 
+            style="display: none;">Cerrar Nivel</button>
+
+    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+</div>
+</div>
+    </div>
+    
+</div>
+    <div id="imagen">
+        <img src="Img/ph_banner.png" alt="Banner de precios">
+    </div>
+
+    <hr>
+    <h1>NUESTROS <span>SERVICIOS VETERINARIOS</span> Y PRECIOS</h1>
+    <hr>
+
+    <div class="contenido">
+        <img src="Img/consulta.png" width="550" height="550" alt="Mascota en consulta">
+
+        <ul>
+            <li>Consulta General <span class="precio">$550</span></li>
+            <li>Consulta de Especialidad <span class="precio">$800</span></li>
+            <li>Vacuna Antirrábica <span class="precio">$300</span></li>
+            <li>Vacuna Múltiple (Canina/Felina) <span class="precio">$650</span></li>
+            <li>Desparasitación Interna/Externa <span class="precio">$250</span></li>
+            <li>Análisis de Sangre Completo <span class="precio">$950</span></li>
+            <li>Limpieza Dental (Incluye anestesia) <span class="precio">$2,500</span></li>
+            <li>Cirugía Menor (Costo Base) <span class="precio">Desde $3,000</span></li>
+            <li>Estética Básica (Baño y Corte de Uñas) <span class="precio">$400</span></li>
+            <li>Grooming Completo (Según Raza) <span class="precio">Desde $600</span></li>
+        </ul>
+        <p style="text-align: left; margin-left: 60px; font-size: 1.1em; color: #555;">
+            * Los precios son estimados. Por favor, consulta directamente en clínica para cotizaciones específicas.
+        </p>
+    </div>
+
+    <div class="botones">
+        <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Cortes.html')">Estetica</button>
+        <button onclick="irA('Horarios.html')">Horarios</button>
+        <button onclick="irA('Farmacia.html')">Farmacia</button>
+        <button onclick="irA('Citas.html')">Agendar Citas</button>
+    </div>
+
+    <script src="TOTALSC.js"></script>
+</body>
+</html>

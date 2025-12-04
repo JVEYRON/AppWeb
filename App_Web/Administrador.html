@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Consultas Veterinarias - PetHappy</title>
+    <link rel="stylesheet" href="administrador.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+
+<body>
+    <div class="user-profile-header">
+        <p class="welcome-message">Bienvenido/a, <span id="user-display" style="color: #28a745;">Veterinario</span></p>
+        <div class="profile-container">
+            <div id="profile-picture-circle">
+                🩺
+            </div>
+            <span class="dropdown-icon"></span>
+            <div class="dropdown">
+                <button onclick="toggleMenu()" class="dropbtn">▼</button>
+                
+                <div id="admin-dropdown" class="dropdown-content">
+                    <a href="#" onclick="activarModoAdministradorSuperior()">Acceso: Administrador Superior</a>
+                    <button id="cerrar-vet-btn" onclick="cerrarModoAdministrador()">Cerrar Modo Veterinario</button>
+                    <a id="cerrar-sesion-btn" href="logout.php">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imagen">
+        <div class="banner-admin">
+            <h1>PANEL DE CONSULTAS VETERINARIAS</h1>
+            <p>Gestión de citas y atención a pacientes</p>
+        </div>
+    </div>
+    
+    <div class="contenido-admin">
+        <hr>
+        <h2>Filtrar Citas por Especialidad</h2>
+        <hr>
+        
+        <div class="modulos-grid">
+            <div class="modulo-card" onclick="filtrarCitas('consulta')">
+                <h3>🩺 Consulta General</h3>
+                <p>Ver citas de consulta general y enfermedad</p>
+            </div>
+            
+            <div class="modulo-card" onclick="filtrarCitas('vacunacion')">
+                <h3>💉 Vacunación</h3>
+                <p>Ver citas de vacunación y desparasitación</p>
+            </div>
+            
+            <div class="modulo-card" onclick="filtrarCitas('estetica')">
+                <h3>✂️ Estética</h3>
+                <p>Ver citas de estética y grooming</p>
+            </div>
+            
+            <div class="modulo-card" onclick="filtrarCitas('cirugia')">
+                <h3>🔬 Cirugía</h3>
+                <p>Ver revisiones post-cirugía</p>
+            </div>
+            
+            <div class="modulo-card" onclick="filtrarCitas('urgencia')">
+                <h3>🚨 Urgencias</h3>
+                <p>Ver citas de urgencia</p>
+            </div>
+            
+            <div class="modulo-card" onclick="verTodasLasCitas()">
+                <h3>📋 Todas las Citas</h3>
+                <p>Ver listado completo de citas</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="botones">
+        <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Cortes.html')">Estetica</button>
+        <button onclick="irA('Horarios.html')">Horarios</button>
+        <button onclick="irA('Precios.html')">Precios</button>
+        <button onclick="irA('Farmacia.html')">Farmacia</button>
+        <button onclick="irA('Citas.html')">Agendar Citas</button>
+    </div>
+
+    <script src="TOTALSC.js"></script>
+    <script>
+        function filtrarCitas(tipo) {
+            // Redirigir a una página que muestre las citas filtradas
+            window.location.href = `ver_citas.php?tipo=${tipo}`;
+        }
+        
+        function verTodasLasCitas() {
+            window.location.href = 'ver_citas.php';
+        }
+    </script>
+</body>
+</html>

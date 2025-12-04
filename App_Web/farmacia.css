@@ -1,0 +1,135 @@
+:root {
+    --color-primary-blue: #007bff;
+    --color-secondary-green: #28a745;
+    --color-background-light: #f8fcfb;
+    --color-card-white: #FFFFFF;
+    --color-border: #e0e0e0;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--color-background-light);
+    color: #333;
+    text-align: center;
+}
+
+/* BANNER */
+#imagen img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* TÍTULO */
+.titulo-seccion {
+    padding: 30px 20px 10px;
+}
+
+.titulo-seccion h1 {
+    color: #333;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.titulo-seccion span {
+    color: var(--color-primary-blue);
+    font-weight: bold;
+}
+
+.titulo-seccion h2 {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-top: 0;
+}
+
+.titulo-seccion hr {
+    border: none;
+    border-top: 3px solid var(--color-primary-blue);
+    width: 60%;
+    margin: 20px auto;
+}
+
+.productos-galeria {
+    padding: 20px 40px;
+}
+
+.productos-grid {
+    display: grid;
+    /* Cuadrícula adaptable: 2 a 4 columnas en PC */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto-card {
+    background-color: var(--color-card-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px); /* Efecto de levantamiento sutil */
+}
+
+.producto-card img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain; /* Muestra la imagen completa sin recortar */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.producto-card h3 {
+    color: var(--color-primary-blue);
+    margin-top: 0;
+}
+
+.precio {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #E60000; /* Rojo para precios, para que destaque */
+    margin: 10px 0;
+}
+
+.btn-info {
+    background-color: var(--color-secondary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-info:hover {
+    background-color: #1e7e34;
+}
+
+.botones {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #007bff;
+}
+.botones button {
+    background-color: #007bff; /* Azul para botones secundarios */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.botones button:hover {
+    background-color: #0056b3; 
+}

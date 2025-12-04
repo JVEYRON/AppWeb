@@ -1,0 +1,202 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8fcfb;
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Imagen superior */
+#imagen {
+    position: relative;
+}
+
+#imagen img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Título */
+h1 {
+    color: #007BFF;
+    margin-top: 30px;
+    font-size: 2.5rem;
+}
+
+hr {
+    border: none;
+    border-top: 4px solid #00C853;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+/* Imagen lateral */
+.contenido img {
+    float: right;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista */
+.contenido ul {
+    list-style-type: none;
+    text-align: left;
+    font-size: 22px;
+    margin-left: 60px;
+    color: #1a1a1a;
+    padding: 0;
+}
+
+.contenido ul li {
+    margin: 20px 0;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hora {
+    color: #E60000; /* Rojo para destacar el horario */
+    font-weight: bold;
+}
+
+/* --- ESTILOS DE BOTONES MEJORADOS --- */
+.botones {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #e9f5ff;
+    border-top: 1px solid #ddd;
+}
+
+.botones button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.botones button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 900px) {
+    .contenido img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+        height: auto;
+    }
+
+    .contenido ul {
+        text-align: left;
+        margin-left: 0;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .botones button {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+.user-profile-header {
+    position: absolute;
+    top: 25px; /* Separación del borde superior */
+    right: 30px; /* Separación del borde derecho */
+    z-index: 1000; /* Asegura que esté por encima de la imagen del banner */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.welcome-message {
+    font-size: 1em;
+    color: #333; /* Color de texto */
+    margin: 0;
+}
+
+#user-display {
+    font-weight: bold;
+    color: #007BFF; /* Usando el azul principal de tus estilos */
+}
+
+
+/* perfil de usuario estilo administrador */
+.profile-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffc107; /* Borde de alerta Admin */
+    border-radius: 30px;
+    padding: 3px 10px 3px 3px;
+    background-color: #343a40; /* Fondo oscuro */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+#profile-picture-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #E0E7FF; /* Fondo rojo de alerta */
+    color: white; 
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 35px;
+}
+
+.dropdown-icon {
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 5px;
+}
+
+/* El contenedor padre debe ser relativo para posicionar el menú */
+.dropdown {
+    position: relative;
+    display: inline-block; /* Ocupa solo el espacio necesario */
+}
+
+/* El menú de botones (Oculto por defecto) */
+.dropdown-content {
+    display: none; /* <-- CLAVE: Oculto inicialmente */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Asegura que flote sobre otros elementos */
+    right: 0; /* Fija el borde derecho del menú al borde derecho del contenedor */
+    left: auto; /* Permite que el menú se extienda hacia la izquierda */
+}
+
+/* Estilo para los botones/enlaces dentro del menú */
+.dropdown-content a, .dropdown-content button {
+    display: block; /* Cada ítem ocupa su propia línea */
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+}
+
+/* La clase que hace el menú visible (añadida por JS) */
+.show {
+    display: block; /* <-- CLAVE: Hace visible el menú al hacer clic */
+}

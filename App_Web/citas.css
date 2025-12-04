@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+}
+#imagen {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#imagen img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+#imagen .titulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#imagen .titulo h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #FFF;
+}
+
+.formulario-container {
+    max-width: 650px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form h2 {
+    color: #007bff; /* Azul primario veterinario */
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-top: 25px;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 5px;
+    color: #555;
+}
+
+input[type="date"], input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Asegura que el padding no exceda el ancho */
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-enviar {
+    background-color: #28a745; /* Verde para acción positiva */
+    color: white;
+    border: none;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #218838;
+}
+
+/* --- Botones de Navegación Inferiores --- */
+.botones {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.botones button {
+    background-color: #007bff; /* Azul para botones secundarios */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.botones button:hover {
+    background-color: #0056b3;
+}

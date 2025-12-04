@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios de Atención</title>
+    <link rel="stylesheet" href="horario.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+
+<body>
+     <div class="user-profile-header">
+    <p class="welcome-message">Bienvenido/a, <span id="user-display">Invitado</span></p>
+    <div class="profile-container">
+        <div id="profile-picture-circle">
+            👤
+        </div>
+        <span class="dropdown-icon"></span>
+        <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">▼</button>
+    
+    <div id="admin-dropdown" class="dropdown-content">
+    
+    <a href="#" 
+       onclick="activarModoAdministrador()" 
+       id="acceso-veterinario-btn">Acceso: Veterinario</a>
+    
+    <a href="#" 
+       onclick="activarModoAdministradorSuperior()" 
+       id="acceso-superior-btn" 
+       style="display: none;">Acceso: Administrador</a> 
+
+    <a id="volver-admin-btn" 
+       href="#" 
+       onclick="volverAdminPanel()" 
+       style="display: none;">Volver al Panel</a>
+       
+    <button id="cerrar-admin-btn" 
+            onclick="cerrarModoAdministrador()" 
+            style="display: none;">Cerrar Nivel</button>
+
+    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+</div>
+</div>
+    </div>
+    
+</div>
+    <div id="imagen">
+        <img src="Img/ph_banner.png" alt="Banner de horarios">
+    </div>
+
+    <hr>
+    <h1>HORARIOS DE ATENCIÓN VETERINARIA</h1>
+    <hr>
+
+    <div class="contenido">
+        <img src="Img/horario.png" width="570" height="550" alt="Imagen de horario">
+
+        <ul>
+            <li>Lunes <span class="hora">9:00 a 14:00 y 16:00 a 20:00</span></li>
+            <li>Martes <span class="hora">9:00 a 14:00 y 16:00 a 20:00</span></li>
+            <li>Miércoles <span class="hora">9:00 a 14:00 y 16:00 a 20:00</span></li>
+            <li>Jueves <span class="hora">9:00 a 14:00 y 16:00 a 20:00</span></li>
+            <li>Viernes <span class="hora">9:00 a 14:00 y 16:00 a 20:00</span></li>
+            <li>Sábado <span class="hora">10:00 a 14:00 (Solo consultas programadas)</span></li>
+            <li>Domingo <span class="hora">Cerrado (Solo Urgencias - 55 1234 5678)</span></li>
+        </ul>
+        <p style="text-align: left; margin-left: 60px; font-size: 1.1em; color: #555;">
+            Para urgencias fuera de horario, por favor llame a nuestro número de emergencia.
+        </p>
+    </div>
+
+    <div class="botones">
+        <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Cortes.html')">Estetica</button>
+        <button onclick="irA('Precios.html')">Precios</button>
+        <button onclick="irA('Farmacia.html')">Farmacia</button>
+        <button onclick="irA('Citas.html')">Agendar Citas</button>
+    </div>
+    <script src="TOTALSC.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+:root {
+    --color-primary-blue: #007bff;      /* Azul principal de botones/títulos */
+    --color-background-light: #f0f8ff;  /* Fondo muy claro */
+    --color-card-white: #FFFFFF;        /* Fondo de la tarjeta */
+    --color-border-light: #ced4da;      /* Borde de inputs */
+    --color-text-dark: #333;            /* Texto principal */
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif, Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background-light); 
+    color: var(--color-text-dark);
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    min-height: 100vh;       /* Asegura que ocupe toda la altura de la ventana */
+}
+
+.login-card {
+    width: 90%;
+    max-width: 400px; 
+    padding: 40px;
+    background: var(--color-card-white);
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.login-card h1 {
+    color: var(--color-primary-blue); 
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+
+.btn-acceso {
+    background-color: var(--color-primary-blue); /* Azul principal */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-acceso:hover {
+    background-color: #0056b3; 
+}

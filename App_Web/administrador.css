@@ -1,0 +1,116 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #e8f5e9; /* Fondo verde claro */
+    color: #333;
+}
+
+/* ------------------ CABECERA / BANNER ------------------ */
+
+#imagen {
+    position: relative;
+    text-align: center;
+}
+
+.banner-admin {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #007bff 0%, #20c997 100%); /* Verde veterinario */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-admin h1 {
+    font-size: 3rem;
+    margin: 0;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 5px;
+}
+
+.banner-admin p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* ------------------ CONTENIDO CENTRAL ------------------ */
+
+.contenido-admin {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contenido-admin h2 {
+    color: #28a745;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.contenido-admin hr {
+    border: none;
+    border-top: 3px solid #28a745;
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+.modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.modulo-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border-top: 5px solid #28a745;
+}
+
+.modulo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+}
+
+.modulo-card h3 {
+    color: #28a745;
+    margin-top: 0;
+}
+
+.nota-admin {
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* ------------------ BOTONES DE NAVEGACIÓN ------------------ */
+
+.botones {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #28a745;
+}
+
+.botones button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.botones button:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - PetHappy</title>
+    <link rel="stylesheet" href="citas.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+
+<body>
+    <div class="user-profile-header">
+        <p class="welcome-message">Bienvenido/a, <span id="user-display">Invitado</span></p>
+        <div class="profile-container">
+            <div id="profile-picture-circle">
+                👤
+            </div>
+            <span class="dropdown-icon"></span>
+            <div class="dropdown">
+                <button onclick="toggleMenu()" class="dropbtn">▼</button>
+                
+                <div id="admin-dropdown" class="dropdown-content">
+    
+    <a href="#" 
+       onclick="activarModoAdministrador()" 
+       id="acceso-veterinario-btn">Acceso: Veterinario</a>
+    
+    <a href="#" 
+       onclick="activarModoAdministradorSuperior()" 
+       id="acceso-superior-btn" 
+       style="display: none;">Acceso: Administrador</a> 
+
+    <a id="volver-admin-btn" 
+       href="#" 
+       onclick="volverAdminPanel()" 
+       style="display: none;">Volver al Panel</a>
+       
+    <button id="cerrar-admin-btn" 
+            onclick="cerrarModoAdministrador()" 
+            style="display: none;">Cerrar Nivel</button>
+
+    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="imagen">
+        <img src="Img/ph_banner.png" alt="Fondo PetHappy" width="100%" height="450"><hr>
+    </div>
+
+    <div class="formulario-container">
+    <form id="form-cita" action="procesar_cita.php" method="POST" onsubmit="return validarHorario(event)"> 
+        
+        <h2>Datos de la Mascota y Cita</h2>
+        <input type="text" placeholder="Nombre de la Mascota" id="nombre-mascota" name="nombre_mascota" required>
+        
+        <select id="especie" name="especie" required>
+            <option value="">-- Especie de la Mascota --</option>
+            <option value="canina">Canina (Perro)</option>
+            <option value="felina">Felina (Gato)</option>
+            <option value="otra">Otra (Especifique en notas)</option>
+        </select>
+        
+        <input type="text" placeholder="Raza de la Mascota" id="raza-mascota" name="raza" required>
+
+        <input type="number" placeholder="Edad de la Mascota (años)" id="edad-mascota" name="edad" min="0" max="30" required>
+
+
+        <hr style="margin: 20px 0;">
+        <h3>Detalles del Servicio</h3>
+
+        <select id="servicio" name="tipo_servicio" required>
+            <option value="">-- Tipo de Servicio --</option>
+            <option value="consulta">Consulta General / Enfermedad</option>
+            <option value="vacunacion">Vacunación / Desparasitación</option>
+            <option value="estetica">Estética y Grooming</option>
+            <option value="cirugia">Revisión Post-Cirugía</option>
+            <option value="urgencia">Urgencia (Llamar también al 55 1234 5678)</option>
+        </select>
+
+        <label for="fecha">Selecciona la fecha de tu cita:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="hora">Selecciona la hora:</label>
+        <select id="hora" name="hora" required>
+            <option value="">-- Selecciona una hora --</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">01:00 PM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="16:00">04:00 PM</option>
+            <option value="17:00">05:00 PM</option>
+            <option value="18:00">06:00 PM</option>
+        </select>
+
+        <textarea placeholder="Notas adicionales (síntomas, historial médico breve, etc.)" name="notas"></textarea>
+
+        <button type="submit" class="btn-enviar">Solicitar Cita</button>
+    </form>
+</div>
+
+    <div class="botones">
+         <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Cortes.html')">Estetica</button>
+        <button onclick="irA('Horarios.html')">Horarios</button>
+        <button onclick="irA('Precios.html')">Precios</button>
+        <button onclick="irA('Farmacia.html')">Farmacia</button>
+    </div>
+   <script>
+    /* ------------------------------------------- */
+    /* === LÓGICA UNIFICADA: VALIDACIÓN Y CONFIRMACIÓN === */
+    /* ------------------------------------------- */
+    function validarHorario(event) {
+        // Detenemos el envío por defecto para controlarlo con JavaScript
+        event.preventDefault(); 
+        
+        // 1. RECOLECCIÓN DE DATOS Y VERIFICACIÓN BÁSICA
+        const fechaInput = document.getElementById('fecha');
+        const horaInput = document.getElementById('hora');
+        
+        const fechaSeleccionadaStr = fechaInput.value; 
+        const horaSeleccionadaStr = horaInput.value;   
+
+        // Variables para la confirmación final
+        const nombreMascota = document.getElementById('nombre-mascota').value;
+        const servicioSelect = document.getElementById('servicio');
+        const servicio = servicioSelect.options[servicioSelect.selectedIndex].text;
+        
+        if (!fechaSeleccionadaStr || !horaSeleccionadaStr) {
+            alert("Por favor, selecciona una fecha y hora válidas.");
+            return false;
+        }
+
+        const fechaCita = new Date(fechaSeleccionadaStr + 'T' + horaSeleccionadaStr + ':00');
+        const hoy = new Date();
+        const dia = fechaCita.getDay();
+        
+        // --- VALIDACIÓN DE HORARIOS ---
+
+        // VALIDACIÓN 1: DÍA NO LABORABLE (DOMINGO)
+        if (dia === 0) {
+            alert("❌ No se pueden agendar citas los Domingos (Día no laborable). Solo Urgencias telefónicas.");
+            return false;
+        }
+
+        // VALIDACIÓN 2: FECHA EN EL PASADO
+        if (fechaCita < hoy) {
+            alert("❌ No se puede agendar una cita en una fecha u hora que ya pasó.");
+            return false;
+        }
+
+        // VALIDACIÓN 3: RANGO HORARIO (Lunes a Sábado)
+        const hora = fechaCita.getHours();
+        
+        if (dia >= 1 && dia <= 5) { // Lunes a Viernes
+            if (hora < 9 || hora >= 20) { 
+                alert("❌ Horario de atención de Lunes a Viernes: 9:00 AM a 8:00 PM.");
+                return false;
+            }
+        } else if (dia === 6) { // Sábado
+            if (hora < 10 || hora >= 14) { 
+                alert("❌ Horario de atención los Sábados: 10:00 AM a 2:00 PM.");
+                return false;
+            }
+        }
+        
+        // VALIDACIÓN 4: HORA DE CIERRE DE HOY (si la fecha es HOY)
+        const fechaHoyStr = hoy.toISOString().split('T')[0];
+        
+        if (fechaSeleccionadaStr === fechaHoyStr) {
+            let horaCierre;
+            if (dia >= 1 && dia <= 5) horaCierre = 20;
+            else if (dia === 6) horaCierre = 14;
+            else horaCierre = 0;
+
+            const horaActual = hoy.getHours() + (hoy.getMinutes() / 60);
+
+            if (horaActual >= horaCierre && horaCierre > 0) {
+                alert("❌ Lo sentimos, la clínica ya ha cerrado por hoy. No se pueden agendar citas.");
+                return false;
+            }
+        }
+
+
+        // --- SI TODAS LAS VALIDACIONES PASAN, PROCEDEMOS A LA CONFIRMACIÓN ---
+        
+        // 5. Crear el mensaje de revisión (Alerta del profesor)
+        const reviewMessage = 
+            `✅ ¡Horario Disponible! Ahora, REVISA TUS DATOS:\n\n` +
+            `Mascota: ${nombreMascota}\n` +
+            `Servicio: ${servicio}\n` +
+            `Fecha: ${fechaSeleccionadaStr}\n` +
+            `Hora: ${horaSeleccionadaStr}\n\n` +
+            `¿Estás seguro de que deseas ENVIAR esta solicitud de cita?`;
+
+        // 6. Mostrar la confirmación
+        const isReadyToSubmit = confirm(reviewMessage); 
+
+        if (isReadyToSubmit) {
+            // Si acepta, permitimos el envío al servidor
+            return true;
+        } else {
+            // Si cancela, el envío ya fue detenido por event.preventDefault()
+            return false;
+        }
+    }
+    </script>
+    <script src="TOTALSC.js"></script>
+</body>
+</html>

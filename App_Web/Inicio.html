@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHappy | Acceder</title>
+    <link rel="stylesheet" href="Inicio.css">
+</head>
+<body>
+    <div class="login-card">
+        <h1>🐾 Acceder a PetHappy</h1>
+        
+        <form id="login-form" onsubmit="return procesarLogin(event)">
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+            
+            <button type="submit" class="btn-acceso">Ingresar a la App</button>
+        </form>
+        
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            ¿No tienes cuenta? <a href="Registro.html" style="color: #007bff; text-decoration: none; font-weight: bold;">¡Regístrate aquí!</a>
+        </p>
+    </div>
+
+    <script>
+        function procesarLogin(event) {
+            event.preventDefault();
+            
+            // Obtener los valores del formulario
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Preparar los datos para enviar
+            const datos = {
+                email: email,
+                password: password
+            };
+            
+            // Realizar la petición al servidor
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Login exitoso
+                    alert('¡Bienvenido ' + data.nombre + '!');
+                    // Redirigir a PetHappy con el nombre de usuario
+                    window.location.href = 'PetHappy.php?usuario=' + encodeURIComponent(data.nombre);
+                } else {
+                    // Mostrar error
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error de conexión con el servidor');
+            });
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

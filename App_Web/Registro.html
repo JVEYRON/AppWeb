@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHappy | Registro</title>
+    <link rel="stylesheet" href="Inicio.css"> 
+
+</head>
+<body>
+    <div class="login-card">
+        <h1>👤 Regístrate en PetHappy</h1>
+        
+        <form action="registro.php" method="post" onsubmit="return confirmarRegistro()">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+        <label>Apellido paterno</label>
+        <input type="text" name="apellido_paterno" required>
+    </div>
+
+    <div class="form-group">
+        <label>Apellido materno</label>
+        <input type="text" name="apellido_materno" required>
+    </div>
+
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" name="telefono" required>
+    </div>
+
+    <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button type="submit" name="registro" class="btn-acceso">Crear Cuenta</button>
+</form>
+<script>
+    function confirmarRegistro() {
+        const nombre = document.querySelector('[name="nombre"]').value;
+        const email = document.querySelector('[name="email"]').value;
+        
+        // Creamos el mensaje personalizado
+        const mensaje = 
+            `⚠️ ¡Última Revisión antes de Registrarte! ⚠️\n\n` +
+            `Verifica que los siguientes datos sean correctos:\n` +
+            `Nombre: ${nombre}\n` +
+            `Email: ${email}\n\n` +
+            `¿Estás seguro de que deseas registrar esta cuenta?`;
+
+        // Mostramos el cuadro de diálogo de confirmación
+        const confirmacion = confirm(mensaje);
+
+        // Si el usuario acepta, devuelve true y el formulario se envía.
+        // Si el usuario cancela, devuelve false y el envío se detiene.
+        return confirmacion;
+    }
+</script>
+
+        <p style="margin-top: 20px; font-size: 0.9em;"><a href="Inicio.html" style="color: #007bff; text-decoration: none;">Volver al Login</a></p>
+    </div>
+</body>
+</html>

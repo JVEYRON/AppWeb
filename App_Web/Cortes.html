@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estética y Grooming - PetHappy</title>
+    <link rel="stylesheet" href="cortes.css">
+    <link rel="stylesheet" href="perfil_menu.css">
+</head>
+<body>
+     <div class="user-profile-header">
+    <p class="welcome-message">Bienvenido/a, <span id="user-display">Invitado</span></p>
+    <div class="profile-container">
+        <div id="profile-picture-circle">
+            👤
+        </div>
+        <span class="dropdown-icon"></span>
+        <div class="dropdown">
+    <button onclick="toggleMenu()" class="dropbtn">▼</button>
+    
+    <div id="admin-dropdown" class="dropdown-content">
+    
+    <a href="#" 
+       onclick="activarModoAdministrador()" 
+       id="acceso-veterinario-btn">Acceso: Veterinario</a>
+    
+    <a href="#" 
+       onclick="activarModoAdministradorSuperior()" 
+       id="acceso-superior-btn" 
+       style="display: none;">Acceso: Administrador</a> 
+
+    <a id="volver-admin-btn" 
+       href="#" 
+       onclick="volverAdminPanel()" 
+       style="display: none;">Volver al Panel</a>
+       
+    <button id="cerrar-admin-btn" 
+            onclick="cerrarModoAdministrador()" 
+            style="display: none;">Cerrar Nivel</button>
+
+    <a id="cerrar-sesion-btn" href="cerrar_sesion.php">Cerrar Sesión</a>
+</div>
+</div>
+    </div>
+    
+</div>
+    <header id="imagen">
+        <img src="Img/ph_banner.png" alt="Fondo Estética" width="100%" height="500">
+    </header>
+
+    <section class="titulo">
+        <h2>ESTÉTICA Y</h2>
+        <h1>GROOMING</h1>
+        <h2>CANINO Y FELINO</h2>
+        <hr>
+    </section>
+
+    <section class="galeria">
+
+        <table>
+            <tr>
+                <td><img src="Img/baño.png" alt="Baño y Secado"></td>
+                <td><img src="Img/cortepelo.png" alt="Corte de Pelo Estándar"></td>
+                <td><img src="Img/oidos.png" alt="Limpieza de Oídos"></td>
+            </tr>
+            <tr>
+                <td><img src="Img/uñas.png" alt="Corte de Uñas"></td>
+                <td><img src="Img/cepillado.png" alt="Cepillado Deslanado"></td>
+                <td><img src="Img/pulgas.png" alt="Tratamiento Antipulgas"></td>
+            </tr>
+            <tr>
+                <td><img src="" alt="Corte a Tijera"></td>
+                <td><img src="" alt="Baño Terapéutico"></td>
+                <td><img src="" alt="Peinados para Exposición"></td>
+            </tr>
+        </table>
+        <p style="margin-top: 30px; font-size: 1.2em; color: #555;">Consulta nuestra página de Precios para ver el detalle de los paquetes de estética.</p>
+    </section>
+
+    <div class="botones">
+         <button onclick="irA('PetHappy.php')">PetHappy</button>
+        <button onclick="irA('Horarios.html')">Horarios</button>
+        <button onclick="irA('Precios.html')">Precios</button>
+        <button onclick="irA('Farmacia.html')">Farmacia</button>
+        <button onclick="irA('Citas.html')">Agendar Citas</button>
+    </div>
+
+    <script src="TOTALSC.js"></script>
+</body>
+</html>
